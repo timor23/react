@@ -1,9 +1,11 @@
+import React from "react";
 
+const originalItems = ["one", "two", "three", "four", "five"];
 const MarkAndDel = () => {
 
-    const originalItems = ["one", "two", "three", "four", "five"];
-    let items = originalItems;
-    const itemsToBeDeleted = [];
+    const [items, setItems] = React.useState(originalItems);
+
+    let itemsToBeDeleted = [];
 
     const handleChecked = (e) => {
         if (e.target.checked) {
@@ -12,7 +14,7 @@ const MarkAndDel = () => {
             let index = itemsToBeDeleted.indexOf(e.target.value);
             itemsToBeDeleted.splice(index, 1);
         }
-        console.log(itemsToBeDeleted);
+
     }
 
     const deleteItems = () => {
@@ -21,17 +23,19 @@ const MarkAndDel = () => {
             console.log(index);
             items.splice(index, 1);
             console.log(items);
+            itemsToBeDeleted = [];
         }
     }
 
     const reset = () => {
-        items = originalItems;
+        setItems(originalItems);
+        console.log(items)
     }
     return (
         <>
             <input type="button" value={'Delete'} onClick={deleteItems}/>
             <input type="button" value={'Reset'} onClick={reset}/>
-            <ul style={{fontSize: '50px'}}>
+            <ul style={{fontSize: '50px', listStyle: 'none'}}>
                 {items.map(item => (
                     <li>
                         <input type="checkBox" value={item} onChange={handleChecked}/>
