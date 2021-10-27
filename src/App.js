@@ -3,7 +3,8 @@ import logo from './logo.svg';
 import ShowText from './components/ex18/ex18_1/showText';
 import Todo from "./components/ex18/ex18_2/todo";
 import MarkAndDel from "./components/ex18/18_3/markAndDel";
-import SimpleFetch from './components/ex19/ex19_1/ex19_1'
+import SimpleFetch from './components/ex19/ex19_1/movies'
+import Countries from './components/ex19/ex19_2/countries'
 
 function App() {
     return (
@@ -11,7 +12,8 @@ function App() {
             {/*<ShowText />*/}
             {/*<Todo />*/}
             {/*<MarkAndDel />*/}
-            <SimpleFetch />
+            {/*<SimpleFetch />*/}
+            <Countries />
         </div>
     );
 }
